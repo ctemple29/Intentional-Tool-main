@@ -30,7 +30,8 @@ function setOperation() {
 	dial.querySelector('.dial-notch').style.transform = `rotate(${operationIndex * 90}deg)`;
 }
 function printResult() {
-	calculateLever.classList.remove('is-pulled');
+	calculateLever.classList.add('is-pulled');
+	window.setTimeout(() => calculateLever.classList.remove('is-pulled'), 350);
 	const operation = OPERATIONS[operationIndex];
 	const answer = calculate(values[0], values[1], operation);
 	status.textContent = 'Printing result slip...';
@@ -49,7 +50,12 @@ document.querySelectorAll('.wheel').forEach((wheel) => {
 		return duration > 3000 ? base * 5 : base;
 	});
 });
-document.querySelectorAll('.reset-lever').forEach((button) => button.addEventListener('click', () => { const index = Number(button.dataset.reset); values[index] = 0; renderValue(index); status.textContent = `Reset ${index + 1}`; }));
+document.querySelectorAll('.reset-lever').forEach((button) => {
+	button.addEventListener('pointerdown', () => button.classList.add('is-pulled'));
+	button.addEventListener('pointerup', () => button.classList.remove('is-pulled'));
+	button.addEventListener('pointercancel', () => button.classList.remove('is-pulled'));
+	button.addEventListener('click', () => { const index = Number(button.dataset.reset); values[index] = 0; renderValue(index); status.textContent = `Reset ${index + 1}`; });
+});
 modeLever.addEventListener('click', () => { precisionMode = !precisionMode; modeLever.setAttribute('aria-pressed', String(precisionMode)); modeLever.querySelector('.mode-label').textContent = precisionMode ? 'Precision' : 'Normal'; status.textContent = precisionMode ? 'Precision gear engaged' : 'Normal gear engaged'; });
 dial.addEventListener('click', () => { operationIndex = (operationIndex + 1) % OPERATIONS.length; setOperation(); });
 calculateLever.addEventListener('click', printResult);
