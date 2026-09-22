@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta name="theme-color" content="#d9d5cc">
+	<title>Intentional Tool | Mechanical Calculator</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<main class="calculator" aria-label="Mechanical calculator">
+		<header class="masthead">
+			<div>
+				<p class="eyebrow">INTENTIONAL TOOL / NO. 01</p>
+				<h1>Mechanical calculator</h1>
+			</div>
+			<p class="status" id="statusText">Ready for input</p>
+		</header>
+
+		<section class="machine" aria-label="Calculator controls">
+			<canvas id="machineCanvas" aria-hidden="true"></canvas>
+			<section class="paper" aria-live="polite">
+				<div class="paper-label">Result slip</div>
+				<div class="paper-result" id="resultDisplay">—</div>
+				<div class="paper-note" id="resultNote">Pull the calculate lever to print</div>
+			</section>
+
+			<section class="controls">
+				<div class="top-controls">
+					<div class="operation-area">
+						<button class="dial" id="operationDial" type="button" aria-label="Select operation" title="Select operation">
+							<span class="dial-notch"></span>
+						</button>
+						<div class="operation-readout" id="operationReadout">ADD</div>
+						<p class="control-caption">Operation dial</p>
+					</div>
+					<button class="calculate-lever" id="calculateLever" type="button" aria-label="Calculate result">
+						<span class="lever-arm"></span><span class="lever-grip"></span>
+						<span class="lever-label">Calculate</span>
+					</button>
+				</div>
+
+				<div class="number-bank">
+					<div class="number-unit">
+						<output class="number-display" id="numberOne">0.000</output>
+						<button class="reset-lever" type="button" data-reset="0" aria-label="Reset 1">
+							<span class="reset-arm"></span><span>Reset 1</span>
+						</button>
+						<button class="wheel" type="button" data-wheel="0" aria-label="Adjust first number">
+							<span class="wheel-handle"></span>
+						</button>
+					</div>
+					<button class="mode-lever" id="modeLever" type="button" aria-pressed="false" aria-label="Switch precision mode">
+						<span class="mode-arm"></span><span class="mode-label">Normal</span>
+					</button>
+					<div class="number-unit">
+						<output class="number-display" id="numberTwo">0.000</output>
+						<button class="reset-lever" type="button" data-reset="1" aria-label="Reset 2">
+							<span class="reset-arm"></span><span>Reset 2</span>
+						</button>
+						<button class="wheel" type="button" data-wheel="1" aria-label="Adjust second number">
+							<span class="wheel-handle"></span>
+						</button>
+					</div>
+				</div>
+				<p class="instruction">Turn the cranks clockwise to increase. Hold a turn for three seconds to engage the fast gear.</p>
+			</section>
+		</section>
+	</main>
+	<script type="module" src="main.js"></script>
+</body>
+</html>

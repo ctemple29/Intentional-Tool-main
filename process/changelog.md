@@ -1,0 +1,1 @@
+The intital prompt was used to lay the foundations of mechanics.
