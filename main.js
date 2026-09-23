@@ -27,7 +27,7 @@ function changeValue(index, amount) {
 function setOperation() {
 	const operation = OPERATIONS[operationIndex];
 	readout.textContent = labels[operation];
-	dial.querySelector('.dial-notch').style.transform = `rotate(${operationIndex * 90}deg)`;
+	dial.style.setProperty('--dial-angle', `${operationIndex * 90}deg`);
 }
 function printResult() {
 	calculateLever.classList.add('is-pulled');
@@ -47,6 +47,7 @@ document.querySelectorAll('.wheel').forEach((wheel) => {
 	const index = Number(wheel.dataset.wheel);
 	createWheelInput(wheel, (turns) => changeValue(index, turns), (duration) => {
 		const base = precisionMode ? 0.001 : 0.01;
+		if (duration > 10000) return 0.1;
 		return duration > 3000 ? base * 5 : base;
 	});
 });
@@ -57,7 +58,10 @@ document.querySelectorAll('.reset-lever').forEach((button) => {
 	button.addEventListener('click', () => { const index = Number(button.dataset.reset); values[index] = 0; renderValue(index); status.textContent = `Reset ${index + 1}`; });
 });
 modeLever.addEventListener('click', () => { precisionMode = !precisionMode; modeLever.setAttribute('aria-pressed', String(precisionMode)); modeLever.querySelector('.mode-label').textContent = precisionMode ? 'Precision' : 'Normal'; status.textContent = precisionMode ? 'Precision gear engaged' : 'Normal gear engaged'; });
-dial.addEventListener('click', () => { operationIndex = (operationIndex + 1) % OPERATIONS.length; setOperation(); });
+createWheelInput(dial, () => {}, () => 0, '--dial-angle', (rotation) => {
+	operationIndex = Math.round(rotation / 90) % OPERATIONS.length;
+	setOperation();
+});
 calculateLever.addEventListener('click', printResult);
 window.addEventListener('resize', updateCanvas);
 updateCanvas(); setOperation(); displays.forEach((_, index) => renderValue(index));

@@ -1,5 +1,5 @@
 // Sets how the wheel input should behave and be interacted with.
-export function createWheelInput(element, onChange, getStep) {
+export function createWheelInput(element, onChange, getStep, rotationVariable = '--wheel-angle', onRotation) {
 	let active = false;
 	let previousAngle = 0;
 	let accumulated = 0;
@@ -21,7 +21,9 @@ export function createWheelInput(element, onChange, getStep) {
 		const threshold = Math.PI / 8;
 		const turns = Math.trunc(accumulated / threshold);
 		if (turns) { accumulated -= turns * threshold; onChange(turns * getStep(Date.now() - startedAt)); }
-		element.style.setProperty('--wheel-angle', `${(angle * 180) / Math.PI + 90}deg`);
+		const rotation = ((angle * 180) / Math.PI + 90 + 360) % 360;
+		element.style.setProperty(rotationVariable, `${rotation}deg`);
+		onRotation?.(rotation);
 	};
 	const stop = () => { active = false; if (pointerId !== null) element.releasePointerCapture?.(pointerId); pointerId = null; element.classList.remove('is-turning'); };
 	// Event listeners for pointer events.

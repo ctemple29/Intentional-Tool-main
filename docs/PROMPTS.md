@@ -7,3 +7,4 @@ Prompt 2:Some minor tweaks, could you make the reset levers be pulled down inste
  Prompt 4: Could you move the 'calculate' label upward so it no longer is clipping into the lever?
  Prompt 5: the 'Calculate' label is still too low. Raise it by 20 pixels please.
  Prompt 6: Could you make the rotation when pulled significantly less? Keep the resting orientation the exact same but only change how much it rotates. Give me exact values for the rotation alteration for later iteration.
+ Prompt 7: Greetings, could you add it so that after the wheel has been spun for longer than ten seconds the digits affected by the rotation is the tenths place and not the hundredths?

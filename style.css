@@ -28,9 +28,9 @@ h1 { margin: 0; font-size: clamp(1.6rem, 3.5vw, 3.1rem); font-weight: 400; lette
 .controls { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 6% 5% 4%; }
 .top-controls { display: flex; justify-content: flex-end; align-items: start; gap: clamp(2rem, 10vw, 9rem); }
 .operation-area { text-align: center; }
-.dial { position: relative; display: block; width: 74px; height: 74px; border: 7px solid #474742; border-radius: 50%; background: #87867e; box-shadow: inset 3px 3px 0 #aaa79d, 2px 3px 0 #68665e; cursor: grab; }
+.dial { position: relative; display: block; width: 74px; height: 74px; border: 7px solid #474742; border-radius: 50%; background: #87867e; box-shadow: inset 3px 3px 0 #aaa79d, 2px 3px 0 #68665e; cursor: grab; touch-action: none; }
 .dial:active { cursor: grabbing; }
-.dial-notch { position: absolute; top: 5px; left: calc(50% - 3px); width: 6px; height: 22px; background: var(--paper); border-radius: 3px; transform-origin: 3px 32px; }
+.dial-notch { position: absolute; top: 5px; left: calc(50% - 3px); width: 6px; height: 22px; background: var(--paper); border-radius: 3px; transform: rotate(var(--dial-angle, 0deg)); transform-origin: 3px 32px; }
 .operation-readout { margin-top: .6rem; color: var(--green); font: bold .9rem ui-monospace, monospace; }
 .control-caption { color: var(--muted); margin: .25rem 0 0; letter-spacing: .02em; text-transform: none; }
 .calculate-lever { position: relative; width: 106px; height: 108px; border: 0; background: transparent; cursor: pointer; }
