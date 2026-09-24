@@ -29,3 +29,4 @@ seventh: straighten the results slip
 eighth: make the inner background a metallic grey (hex A8A8A8) with small details of grime and fading of the metal spread loosely across
 nineth: make the outer background hex B0B0B0
 tenth: remove the 'paper lines' in the inner background, make it smooth like a metal sheet and not paper
+Prompt 19: remove 'operation dial' and 'result slip' text please
