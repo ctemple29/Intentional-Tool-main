@@ -57,6 +57,7 @@ document.querySelectorAll('.wheel').forEach((wheel) => {
 	const index = Number(wheel.dataset.wheel);
 	createWheelInput(wheel, (turns) => changeValue(index, turns), (duration) => {
 		const base = precisionMode ? 0.001 : 0.01;
+		if (precisionMode) return base;
 		if (duration > 10000) return 0.1;
 		return duration > 3000 ? base * 5 : base;
 	});

@@ -12,3 +12,9 @@ Prompt 2:Some minor tweaks, could you make the reset levers be pulled down inste
  Prompt 9: To the very right of the 'results slip' please add the previous three calculations in a vertical list please.
  Prompt 10: Minor revision: simply add the result of each calculation to the already existing results slip but to the right of the slip, still inside of the slip, just offset so it does not interfere with the current calculated digit.
  Prompt 11: Another revision: Only display the RESULTS of the calculation, not the full calculation when storing them in the previous calculations section of the result slip 
+ Prompt 12: Okay as I was reviewing in full screen, the results slip is clipping into the display for the digits regarding the wheel. Solution: remove the instructional text near the bottom of the screen and bring the wheels, precision lever, reset levers, and digit displays down by around 40px to begin.
+ Prompt 13: Okay perfect, could make the move 35px instead because now the wheels clip out of the boundary.
+ Prompt 14: Could you now swap the order of the results slip so that the active calculated digit is to the right and the previous calculations get a collum capable of fitting the three calculations without clipping outside of the slip boundary
+ Prompt 15: Remove the 'previous calculations' label please and while you're doing that could you make the results slip slightly longer? Namely, could you make the region where the active calculation is displayed longer horizontally and the region where the previous calculations longer vertically
+ Prompt 16: Could you lower where the first recorded calculation is displayed by 17px because it's currently clipping into the 'results slip
+ Prompt 17: When you use change the wheels into 'precision' mode, disable all time-based increases to digits
