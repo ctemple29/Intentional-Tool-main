@@ -21,6 +21,11 @@
 			<canvas id="machineCanvas" aria-hidden="true"></canvas>
 			<section class="paper" aria-live="polite">
 				<div class="paper-label">Result slip</div>
+				<aside class="history" aria-label="Previous calculations">
+					<ol class="history-list" id="historyList">
+						<li class="history-empty">No previous calculations</li>
+					</ol>
+				</aside>
 				<div class="paper-result" id="resultDisplay">—</div>
 				<div class="paper-note" id="resultNote">Pull the calculate lever to print</div>
 			</section>
@@ -63,7 +68,6 @@
 						</button>
 					</div>
 				</div>
-				<p class="instruction">Turn the cranks clockwise to increase. Hold a turn for three seconds to engage the fast gear.</p>
 			</section>
 		</section>
 	</main>

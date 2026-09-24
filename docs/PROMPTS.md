@@ -8,3 +8,7 @@ Prompt 2:Some minor tweaks, could you make the reset levers be pulled down inste
  Prompt 5: the 'Calculate' label is still too low. Raise it by 20 pixels please.
  Prompt 6: Could you make the rotation when pulled significantly less? Keep the resting orientation the exact same but only change how much it rotates. Give me exact values for the rotation alteration for later iteration.
  Prompt 7: Greetings, could you add it so that after the wheel has been spun for longer than ten seconds the digits affected by the rotation is the tenths place and not the hundredths?
+ Prompt 8: Can you run a stress test on how the calculator handles extremely large digits? Try to push the system to its absolute limitations
+ Prompt 9: To the very right of the 'results slip' please add the previous three calculations in a vertical list please.
+ Prompt 10: Minor revision: simply add the result of each calculation to the already existing results slip but to the right of the slip, still inside of the slip, just offset so it does not interfere with the current calculated digit.
+ Prompt 11: Another revision: Only display the RESULTS of the calculation, not the full calculation when storing them in the previous calculations section of the result slip 

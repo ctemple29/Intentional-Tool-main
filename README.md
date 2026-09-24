@@ -14,3 +14,4 @@ What happens if the API fails?
 N/A
 
 Break Log
+Unable to break due to simplity, stress testing resulting in the maximum input ceiling being 999,999,999. All returned values finite, divison by zero returns an error message, repeated decimals maintained precision with rounding, negatives permitted. 

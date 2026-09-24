@@ -21,10 +21,18 @@ h1 { margin: 0; font-size: clamp(1.6rem, 3.5vw, 3.1rem); font-weight: 400; lette
 .status { color: var(--muted); margin: 0; text-align: right; }
 .machine { position: relative; isolation: isolate; max-width: 1200px; min-height: min(75svh, 760px); margin: 0 auto; border: 1px solid var(--line); background: #c7c3ba; box-shadow: 8px 8px 0 var(--shadow); }
 #machineCanvas { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; }
-.paper { position: absolute; top: 7%; left: 5%; width: min(43%, 410px); min-height: 170px; padding: 1rem; background: var(--paper); border: 1px solid var(--line); box-shadow: 4px 5px 0 rgba(80,76,68,.2); transform: rotate(-1deg); }
+.paper { position: absolute; top: 7%; left: 5%; width: min(43%, 410px); min-height: 190px; padding: 1rem; background: var(--paper); border: 1px solid var(--line); box-shadow: 4px 5px 0 rgba(80,76,68,.2); transform: rotate(-1deg); }
 .paper-label { color: var(--muted); border-bottom: 1px solid var(--line); padding-bottom: .5rem; }
-.paper-result { min-height: 5rem; padding-top: 1rem; font: clamp(1.5rem, 4vw, 2.8rem)/1.1 Georgia, serif; word-break: break-all; }
-.paper-note { color: var(--muted); letter-spacing: .02em; text-transform: none; }
+.paper-result { position: absolute; top: 3rem; right: 1rem; width: 54%; min-height: 5rem; padding-top: 1rem; font: clamp(1.5rem, 4vw, 2.8rem)/1.1 Georgia, serif; word-break: break-word; }
+.paper-note { position: absolute; right: 1rem; bottom: 1rem; width: 54%; color: var(--muted); letter-spacing: .02em; text-transform: none; }
+.history { position: absolute; top: 1rem; left: 1rem; width: 36%; height: 145px; padding-right: .7rem; border-right: 1px solid var(--line); overflow: hidden; }
+.history-list { display: flex; flex-direction: column; gap: .35rem; margin: 0; padding: .25rem 0 0 1.05rem; transform: translateY(17px); }
+.history-list li { padding-left: .15rem; font: .68rem/1.2 ui-monospace, monospace; border-bottom: 1px solid rgba(112, 110, 103, .4); overflow: hidden; }
+.history-list li::marker { color: var(--muted); }
+.history-list li span, .history-list li strong { display: block; }
+.history-list li strong { display: block; padding: .1rem 0 .25rem; font-size: .78rem; font-weight: 400; overflow-wrap: anywhere; }
+.history-list li strong em { font-style: normal; }
+.history-empty { color: var(--muted); list-style: none; padding-left: 0 !important; }
 .controls { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 6% 5% 4%; }
 .top-controls { display: flex; justify-content: flex-end; align-items: start; gap: clamp(2rem, 10vw, 9rem); }
 .operation-area { text-align: center; }
@@ -38,7 +46,7 @@ h1 { margin: 0; font-size: clamp(1.6rem, 3.5vw, 3.1rem); font-weight: 400; lette
 .lever-arm::after { content: ''; position: absolute; left: 50%; bottom: -13px; width: 30px; height: 14px; background: #51514b; border: 2px solid #222; border-radius: 7px; transform: translateX(-50%); }
 .calculate-lever.is-pulled .lever-arm { transform: rotate(180deg); }
 .lever-label { position: absolute; top: 50px; right: 0; font: .68rem ui-monospace, monospace; text-transform: uppercase; }
-.number-bank { display: grid; grid-template-columns: 1fr 90px 1fr; align-items: end; gap: clamp(1rem, 4vw, 4rem); width: min(100%, 720px); margin: 0 auto; }
+.number-bank { display: grid; grid-template-columns: 1fr 90px 1fr; align-items: end; gap: clamp(1rem, 4vw, 4rem); width: min(100%, 720px); margin: 0 auto; transform: translateY(30px); }
 .number-unit { display: flex; flex-direction: column; align-items: center; gap: .45rem; }
 .number-display { min-width: 6ch; padding: .2rem .45rem; color: var(--ink); background: var(--paper); border-bottom: 3px solid #41413d; font: clamp(1.7rem, 4vw, 3rem)/1.1 ui-monospace, monospace; text-align: center; }
 .reset-lever { position: relative; width: 100px; height: 30px; margin-bottom: .05rem; border: 0; background: transparent; cursor: pointer; font: .65rem ui-monospace, monospace; text-transform: uppercase; }
@@ -60,7 +68,9 @@ h1 { margin: 0; font-size: clamp(1.6rem, 3.5vw, 3.1rem); font-weight: 400; lette
 	.masthead { align-items: start; flex-direction: column; gap: .5rem; }
 	.status { text-align: left; }
 	.machine { min-height: 720px; box-shadow: 4px 5px 0 var(--shadow); }
-	.paper { top: 4%; left: 7%; width: 86%; min-height: 145px; }
+	.paper { top: 4%; left: 7%; width: 86%; min-height: 190px; }
+	.paper-result, .paper-note { width: 54%; }
+	.history { top: 1rem; left: 1rem; width: 36%; }
 	.controls { padding: 230px 6% 5%; }
 	.top-controls { gap: 1rem; }
 	.number-bank { grid-template-columns: 1fr 56px 1fr; gap: .25rem; }

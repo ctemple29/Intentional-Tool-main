@@ -18,6 +18,8 @@ const modeLever = document.querySelector('#modeLever');
 const result = document.querySelector('#resultDisplay');
 const note = document.querySelector('#resultNote');
 const calculateLever = document.querySelector('#calculateLever');
+const historyList = document.querySelector('#historyList');
+const history = [];
 
 function renderValue(index) { displays[index].textContent = values[index].toFixed(3); }
 function changeValue(index, amount) {
@@ -28,6 +30,9 @@ function setOperation() {
 	const operation = OPERATIONS[operationIndex];
 	readout.textContent = labels[operation];
 	dial.style.setProperty('--dial-angle', `${operationIndex * 90}deg`);
+}
+function renderHistory() {
+	historyList.innerHTML = history.length ? history.map((entry) => `<li><strong>${entry.result}</strong></li>`).join('') : '<li class="history-empty">No previous calculations</li>';
 }
 function printResult() {
 	calculateLever.classList.add('is-pulled');
@@ -40,6 +45,11 @@ function printResult() {
 		result.innerHTML = answer.error ? 'ERR' : formatResult(answer.value, answer.rounded);
 		note.textContent = answer.error || (answer.rounded ? 'Rounded to the nearest thousandth' : 'Exact to the nearest thousandth');
 		status.textContent = answer.error || 'Result printed';
+		if (!answer.error) {
+			history.unshift({ result: formatResult(answer.value, answer.rounded) });
+			history.splice(3);
+			renderHistory();
+		}
 	}, 2500);
 }
 
