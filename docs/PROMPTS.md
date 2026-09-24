@@ -18,3 +18,14 @@ Prompt 2:Some minor tweaks, could you make the reset levers be pulled down inste
  Prompt 15: Remove the 'previous calculations' label please and while you're doing that could you make the results slip slightly longer? Namely, could you make the region where the active calculation is displayed longer horizontally and the region where the previous calculations longer vertically
  Prompt 16: Could you lower where the first recorded calculation is displayed by 17px because it's currently clipping into the 'results slip
  Prompt 17: When you use change the wheels into 'precision' mode, disable all time-based increases to digits
+ Prompt 18: We're now taking a big shift and working on the atmosphere of the program. From here on until I say so, please perform my requests as exactly as you can manage without fully breaking the program. Let's begin
+First: Remove the 'rounded to the nearest thousandth' message at the bottom of the results slip.
+Second: remove the 'Intentional Tool / NO.01 from the top of the screen.
+Third: capitalise 'calculator' in 'Mechanical calculator'
+Fourth: change all fonts to Courier Prime
+Firth: Move the 'calculate' lever to the left by 10 px
+sixth: Remove the 'status text' from the top-right corner of the screen
+seventh: straighten the results slip
+eighth: make the inner background a metallic grey (hex A8A8A8) with small details of grime and fading of the metal spread loosely across
+nineth: make the outer background hex B0B0B0
+tenth: remove the 'paper lines' in the inner background, make it smooth like a metal sheet and not paper

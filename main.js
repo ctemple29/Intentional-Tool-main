@@ -10,13 +10,11 @@ const labels = { add: 'ADD', subtract: 'SUBTRACT', multiply: 'MULTIPLY', divide:
 const canvas = document.querySelector('#machineCanvas');
 const { context, resize } = setupCanvas(canvas);
 const updateCanvas = () => { const size = resize(); drawMachine(context, size.width, size.height); };
-const status = document.querySelector('#statusText');
 const displays = [document.querySelector('#numberOne'), document.querySelector('#numberTwo')];
 const dial = document.querySelector('#operationDial');
 const readout = document.querySelector('#operationReadout');
 const modeLever = document.querySelector('#modeLever');
 const result = document.querySelector('#resultDisplay');
-const note = document.querySelector('#resultNote');
 const calculateLever = document.querySelector('#calculateLever');
 const historyList = document.querySelector('#historyList');
 const history = [];
@@ -24,7 +22,7 @@ const history = [];
 function renderValue(index) { displays[index].textContent = values[index].toFixed(3); }
 function changeValue(index, amount) {
 	values[index] = Math.max(-999999.999, Math.min(999999.999, Math.round((values[index] + amount) * 1000) / 1000));
-	renderValue(index); status.textContent = precisionMode ? 'Precision gear engaged' : 'Ready for input';
+	renderValue(index);
 }
 function setOperation() {
 	const operation = OPERATIONS[operationIndex];
@@ -39,12 +37,9 @@ function printResult() {
 	window.setTimeout(() => calculateLever.classList.remove('is-pulled'), 350);
 	const operation = OPERATIONS[operationIndex];
 	const answer = calculate(values[0], values[1], operation);
-	status.textContent = 'Printing result slip...';
-	result.innerHTML = '...'; note.textContent = 'Calculating';
+	result.innerHTML = '...';
 	window.setTimeout(() => {
 		result.innerHTML = answer.error ? 'ERR' : formatResult(answer.value, answer.rounded);
-		note.textContent = answer.error || (answer.rounded ? 'Rounded to the nearest thousandth' : 'Exact to the nearest thousandth');
-		status.textContent = answer.error || 'Result printed';
 		if (!answer.error) {
 			history.unshift({ result: formatResult(answer.value, answer.rounded) });
 			history.splice(3);
@@ -66,9 +61,9 @@ document.querySelectorAll('.reset-lever').forEach((button) => {
 	button.addEventListener('pointerdown', () => button.classList.add('is-pulled'));
 	button.addEventListener('pointerup', () => button.classList.remove('is-pulled'));
 	button.addEventListener('pointercancel', () => button.classList.remove('is-pulled'));
-	button.addEventListener('click', () => { const index = Number(button.dataset.reset); values[index] = 0; renderValue(index); status.textContent = `Reset ${index + 1}`; });
+	button.addEventListener('click', () => { const index = Number(button.dataset.reset); values[index] = 0; renderValue(index); });
 });
-modeLever.addEventListener('click', () => { precisionMode = !precisionMode; modeLever.setAttribute('aria-pressed', String(precisionMode)); modeLever.querySelector('.mode-label').textContent = precisionMode ? 'Precision' : 'Normal'; status.textContent = precisionMode ? 'Precision gear engaged' : 'Normal gear engaged'; });
+modeLever.addEventListener('click', () => { precisionMode = !precisionMode; modeLever.setAttribute('aria-pressed', String(precisionMode)); modeLever.querySelector('.mode-label').textContent = precisionMode ? 'Precision' : 'Normal'; });
 createWheelInput(dial, () => {}, () => 0, '--dial-angle', (rotation) => {
 	operationIndex = Math.round(rotation / 90) % OPERATIONS.length;
 	setOperation();
