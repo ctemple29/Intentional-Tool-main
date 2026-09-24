@@ -30,3 +30,5 @@ eighth: make the inner background a metallic grey (hex A8A8A8) with small detail
 nineth: make the outer background hex B0B0B0
 tenth: remove the 'paper lines' in the inner background, make it smooth like a metal sheet and not paper
 Prompt 19: remove 'operation dial' and 'result slip' text please
+Prompt 20: This is mostly a test, you have authority to change the hex code to make grime and general wear more noticable across the background and dials regarding the digits. Make the wear and grime more noticable, please.
+Prompt 21: Good, small alterations: could you make the second dial (right) have a different wear/grime pattern when compared to the first (left) dial? Such as: making the dark spot near the top-right of the dial and the lighter spot near the centre
