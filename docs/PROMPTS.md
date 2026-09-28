@@ -32,3 +32,7 @@ tenth: remove the 'paper lines' in the inner background, make it smooth like a m
 Prompt 19: remove 'operation dial' and 'result slip' text please
 Prompt 20: This is mostly a test, you have authority to change the hex code to make grime and general wear more noticable across the background and dials regarding the digits. Make the wear and grime more noticable, please.
 Prompt 21: Good, small alterations: could you make the second dial (right) have a different wear/grime pattern when compared to the first (left) dial? Such as: making the dark spot near the top-right of the dial and the lighter spot near the centre
+Prompt 22: Could you add "(click)" after Calculate in the Calculate Lever's label?
+Prompt 23: Could you add a small text box using the same Courier Prime Font to the left of the leftmost box containing the following: "The digits go up when rotated clockwise, down when rotated counterclockwise. It progressively gets faster the longer you rotate."
+Prompt 24: Could you remove the white background and narrow the box by 20px while raising the box by 15px
+Prompt 25: Narrow by another 10px and adjust the text: "The digits go up when rotated clockwise, down if turned the other way. It progressively gets faster the longer you rotate."
