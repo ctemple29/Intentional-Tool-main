@@ -2,4 +2,6 @@ Issue ID: The calculation switch being unclear
 Feedback Evidence: directly stated by 2 of the 3 respondees. 
 Fix implimented: Small label telling to click added.
 
-Issue ID:
+Issue ID: Dials unclear
+Feedback Evidence: Physically observed confusion in testers 1 and 2 when first trying to use the dials.
+Fix implemented: Small informational text added to the left of the leftmost dial
